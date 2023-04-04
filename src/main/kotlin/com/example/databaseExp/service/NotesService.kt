@@ -10,8 +10,7 @@ import java.util.*
 class NotesService(private val noteRepository: NoteRepository) {
 
   fun save(note: NoteLabel) {
-    println(Note(description = note.description, createdAt = Date()))
-    noteRepository.save(Note(description = note.description, createdAt = Date()))
+    noteRepository.save(Note(description = note.description, createdAt = Date(), label = note.label))
   }
 
   fun get(): MutableIterable<Note> {

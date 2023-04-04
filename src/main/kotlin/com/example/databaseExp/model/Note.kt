@@ -4,7 +4,7 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
-@Table(name="notes")
+@Table(name = "notes")
 data class Note(
   @Id
   @Column
@@ -16,4 +16,7 @@ data class Note(
 
   @Column
   var createdAt: Date? = null,
+
+  @Column
+  var label: String? = null
 )

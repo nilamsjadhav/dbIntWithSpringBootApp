@@ -20,7 +20,6 @@ class NotesController(private val notesService: NotesService) {
 
   @PostMapping("/add-note", produces = [(MediaType.APPLICATION_JSON_VALUE)])
   fun addNote(@RequestBody note: NoteLabel):String{
-    println(note)
     notesService.save(note)
     return "Note is add successfully"
   }
