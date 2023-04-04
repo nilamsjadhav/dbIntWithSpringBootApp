@@ -1,6 +1,7 @@
 package com.example.databaseExp.controller
 
 import com.example.databaseExp.dto.NoteLabel
+import com.example.databaseExp.dto.Response
 import com.example.databaseExp.model.Note
 import com.example.databaseExp.service.NotesService
 import org.springframework.http.MediaType
@@ -19,13 +20,14 @@ class NotesController(private val notesService: NotesService) {
   }
 
   @PostMapping("/add-note", produces = [(MediaType.APPLICATION_JSON_VALUE)])
-  fun addNote(@RequestBody note: NoteLabel):String{
+  fun addNote(@RequestBody note: NoteLabel): Response {
     notesService.save(note)
-    return "Note is add successfully"
+    return Response("Note add successfully")
   }
 
   @DeleteMapping("/remove-notes")
-  fun removeNotes() {
+  fun removeNotes(): Response {
     notesService.remove()
+    return Response("Removed all notes successfully")
   }
 }
